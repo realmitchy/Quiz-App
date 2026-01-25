@@ -20,3 +20,8 @@ packages/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# --- Runtime & Config ---
+.env
+results.csv
+error.log

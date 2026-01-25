@@ -10,4 +10,8 @@
     <ApplicationIcon>Quiz_App_Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="DotNetEnv" Version="3.1.1" />
+  </ItemGroup>
+
 </Project>
