@@ -20,7 +20,7 @@ namespace QuizApp.Services
         {
             try
             {
-                string result = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss},{studentName},{studentClass},{score}/{totalQuestions}{Environment.NewLine}";
+                string result = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)},{studentName},{studentClass},{score}/{totalQuestions}{Environment.NewLine}";
                 File.AppendAllText(Constants.ResultsFileName, result);
             }
             catch (Exception ex)

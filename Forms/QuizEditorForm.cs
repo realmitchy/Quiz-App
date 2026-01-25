@@ -28,6 +28,8 @@ namespace QuizApp.Forms
             InitializeComponents();
             AttachEventHandlers();
         }
+
+        private static readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions { WriteIndented = true };
         
         /// <summary>
         /// Initializes form controls
@@ -242,7 +244,7 @@ namespace QuizApp.Forms
         /// </summary>
         private void BtnEditQuestion_Click(object? sender, EventArgs e)
         {
-            if (editingIndex < 0 || editingIndex >= currentQuiz.Questions.Count)
+            if (editingIndex < 0 || currentQuiz.Questions == null || editingIndex >= currentQuiz.Questions.Count)
                 return;
             
             if (!ValidateQuestionInputs())
@@ -340,8 +342,7 @@ namespace QuizApp.Forms
             
             try
             {
-                var options = new JsonSerializerOptions { WriteIndented = true };
-                string json = JsonSerializer.Serialize(currentQuiz, options);
+                string json = JsonSerializer.Serialize(currentQuiz, _jsonOptions);
                 File.WriteAllText(dialog.FileName, json);
                 
                 MessageBox.Show($"Quiz saved successfully to:\n{Path.GetFileName(dialog.FileName)}", 

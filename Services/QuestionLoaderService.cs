@@ -41,12 +41,12 @@ namespace QuizApp.Services
                     }
                     else
                     {
-                        invalidFiles.Add(Path.GetFileName(file));
+                        invalidFiles.Add($"{Path.GetFileName(file)} (Invalid format or missing fields)");
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    invalidFiles.Add(Path.GetFileName(file));
+                    invalidFiles.Add($"{Path.GetFileName(file)} (Error: {ex.Message})");
                 }
             }
             
