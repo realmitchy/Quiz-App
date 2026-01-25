@@ -1,0 +1,22 @@
+# --- Build results ---
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+
+# --- IDE files ---
+.vs/
+.vscode/
+*.swp
+*.user
+*.suo
+
+# --- NuGet ---
+project.lock.json
+project.assets.json
+packages/
+
+# --- OS generated files ---
+Thumbs.db
+Desktop.ini
+.DS_Store
